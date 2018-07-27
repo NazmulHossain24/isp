@@ -18,7 +18,11 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
+            $table->string('userType', 20)->default('Employee');
+            $table->string('status', 10)->default('Active');
+            $table->string('sector', 20)->nullable()->default('Dish');
             $table->rememberToken();
+            $table->softDeletes();
             $table->timestamps();
         });
     }
